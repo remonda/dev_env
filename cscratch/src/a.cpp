@@ -1,6 +1,1 @@
-#include "a.h"
-
-int main(int argc, char **argv) {
-  std::cout << "Hello World" << std::endl;
-  return 0;
-}
+#include "incldue/a.h"

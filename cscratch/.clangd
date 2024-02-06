@@ -1,18 +1,16 @@
 CompileFlags:
-  Remove: [-arch]
-  Add: 
-    - "-arch"
-    - "x86_64"
-    - "-std=c++17"
-    - "-DDEBUG"
-    - "-g"
-    - "-Wl"
-    - "-Wall" 
-    - "-Wextra" 
-    - "-Wno-missing-prototypes"
-    - "-I/usr/local/include"
-    - "-L/usr/local/lib"
-    - "-I."
-    - "-I./include" 
-    - "-lpthread"
+  Add: [
+    -std=c++17,
+    -DDEBUG,
+    -g,
+    -Wl,
+    -Wall,
+    -Wextra,
+    -Wno-missing-prototypes,
+    -I.,
+    -I..,
+    -I/usr/local/include,
+    -L/usr/local/lib,
+    -lpthread
+    ]
  
