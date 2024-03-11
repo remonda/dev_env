@@ -1,0 +1,11 @@
+### MACOS ###
+.DS_Store
+
+### logs directory ###
+logs/
+
+### build directory ###
+build/
+
+### VS Code ###
+.vscode/
