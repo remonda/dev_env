@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="300">
+<!--
+monitorInterval="300": indicates 300 second reload configuration file
+-->
+    <Properties>
+        <Property name="basePath">./logs</Property>
+    </Properties>
+<!--
+%d{yyyy-MM-dd HH:mm:ss.SSS} date time include millisecond
+%-5level: log level, -5 indicates left alain in 5 chars
+%t : thread name
+%logger : logger name
+%msg : log text
+%n : end of line
+%l : %C.%M(%F:%L)
+%F : file name
+%L : line number
+%M : method name
+%c : class name
+%C : full class name
+
+-->
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c:%M(%F:%L) - %msg%n"/>
+        </Console>
+
+        <RollingFile name="fileLogger" fileName="${basePath}/info.log"
+                     filePattern="${basePath}/%d{yyyy-MM-dd}/%d{HH-mm}-info.log.gz"
+                     ignoreExceptions="false">
+            <PatternLayout>
+                <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %C:%M(%F:%L) - %msg%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <!--    daily rolling
+                    <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                -->
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20" />
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="debug" additivity="false">
+            <appender-ref ref="console"/>
+        </Root>
+
+        <Logger name="myLogger" level="debug" additivity="true">
+            <appender-ref ref="fileLogger" level="info"/>
+        </Logger>
+    </Loggers>
+</Configuration>

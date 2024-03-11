@@ -1,0 +1,23 @@
+{
+    "name": "java-dev-docker",
+    "build": {
+        // Path is relative to the devcontainer.json file.
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+          "settings": {},
+          "extensions": ["vscjava.vscode-java-pack"]
+        }
+      },
+//   "portsAttributes": {
+//     "3000": {
+//       "label": "Hello Remote World",
+//       "onAutoForward": "notify"
+//     }
+//   },
+
+  "postCreateCommand": "java -version",
+
+  "remoteUser": "root"
+}
